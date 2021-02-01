@@ -1,22 +1,35 @@
-
 import org.testng.annotations.Test;
-
 import java.io.File;
-import java.util.ArrayList;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
+
 
 public class SearchFilesTests {
 
     @Test
-    public static void searchJpg() {
+    public void searchJpg() {
         System.out.println("Working directory: " + System.getProperty("user.dir"));
         String workingDirectory = System.getProperty("user.dir");
 
-        ArrayList<File> filesList = new ArrayList<>();
-        Main.searchFiles(new File(workingDirectory), filesList);
+        System.out.println("Files: ");
+        Algorithms.searchFile(new File(workingDirectory), ".java");
+    }
 
-        System.out.println("Found files: ");
-        for (File file : filesList) {
-            System.out.println(file.getName());
-        }
+    @Test
+    public void calcFactorial() {
+        assertEquals(Algorithms.calcFactorial(4), 24);
+    }
+
+    @Test
+    public void checkPalindrome() {
+        assertTrue(Algorithms.isPalindrome(""));
+        assertTrue(Algorithms.isPalindrome(" "));
+        assertTrue(Algorithms.isPalindrome("asddsa"));
+        assertTrue(Algorithms.isPalindrome("asdsa"));
+        assertTrue(Algorithms.isPalindrome("a s d d s a"));
+        assertFalse(Algorithms.isPalindrome("qwerty"));
+
     }
 }
