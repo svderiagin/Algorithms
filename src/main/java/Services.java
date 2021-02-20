@@ -10,9 +10,6 @@ import java.util.List;
 
 public class Services {
 
-    /**
-     * https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
-     */
     public static String getDateTimeCurrent(String format) {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
     }
