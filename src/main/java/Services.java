@@ -10,14 +10,6 @@ import java.util.List;
 
 public class Services {
 
-    public static String getDateTimeCurrent(String format) {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
-    }
-
-    public static String getDateTimePlusDays(String format, int days) {
-        return LocalDateTime.now().plusDays(days).format(DateTimeFormatter.ofPattern(format));
-    }
-
     /**
      * Convert CSV file to List of objects
      */
