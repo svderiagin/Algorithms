@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 
 
-public class SearchFilesTests {
+public class Tests {
 
     @Test
     public void searchJpg() {
@@ -53,4 +53,6 @@ public class SearchFilesTests {
         assertEquals(Algorithms.calcCharValues("ZTJ"), 18106);
         assertEquals(Algorithms.calcCharValues("BCDE"), 37289);
     }
+
+
 }

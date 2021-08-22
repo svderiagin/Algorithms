@@ -4,8 +4,6 @@ import java.util.Map;
 
 public class Algorithms {
 
-
-
     public static boolean isPalindrome(String value) {
         boolean result = true;
         StringBuilder inputString = new StringBuilder(value);

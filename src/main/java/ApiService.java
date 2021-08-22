@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import io.qameta.allure.Allure;
 import okhttp3.*;
 import okio.BufferedSink;
 import okio.Okio;
@@ -11,6 +12,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
+
+import static com.codeborne.selenide.Selenide.sleep;
 import static java.lang.System.currentTimeMillis;
 
 public class ApiService {
@@ -176,7 +179,6 @@ public class ApiService {
                 .addHeader("Authorization", "Bearer" + token)
                 .post(body)
                 .build();
-
         Allure.addAttachment("Request", String.valueOf(request));
         Allure.addAttachment("Body", body.toString());
 
