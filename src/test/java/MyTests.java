@@ -1,3 +1,4 @@
+import Algorithm.TwoSum;
 import org.testng.annotations.Test;
 import java.io.File;
 
@@ -6,15 +7,18 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.assertFalse;
 
 
-public class Tests {
+public class MyTests {
 
     @Test
-    public void searchJpg() {
-        System.out.println("Working directory: " + System.getProperty("user.dir"));
-        String workingDirectory = System.getProperty("user.dir");
-
-        System.out.println("Files: ");
-        Algorithms.searchFile(new File(workingDirectory), ".java");
+    public void twoSum() {
+        // array should be sorted
+        int[] array = new int[]{-3, 0, 1, 3, 4};
+        assertEquals(TwoSum.loop(array, 5), new int[]{1, 4});
+        assertEquals(TwoSum.hashSet(array, 5), new int[]{1, 4});
+        assertEquals(TwoSum.binarySearch(array, 5), new int[]{1, 4});
+        assertEquals(TwoSum.twoPointers(array, 5), new int[]{1, 4});
+        array = new int[]{-3, 0, 1, 3, 30};
+        assertEquals(TwoSum.twoPointersClosestValues(array, 5), new int[]{1, 3});
     }
 
     @Test
@@ -45,14 +49,21 @@ public class Tests {
      */
     @Test
     public void calcStringAsCharValues() {
-        assertEquals(Algorithms.calcCharValues("AA"), 27);
-        assertEquals(Algorithms.calcCharValues("JA"), 261);
-        assertEquals(Algorithms.calcCharValues("ZZ"), 702);
-        assertEquals(Algorithms.calcCharValues("AAA"), 703);
-        assertEquals(Algorithms.calcCharValues("ABC"), 731);
-        assertEquals(Algorithms.calcCharValues("ZTJ"), 18106);
-        assertEquals(Algorithms.calcCharValues("BCDE"), 37289);
+        assertEquals(Algorithms.calcExcelCharValues("AA"), 27);
+        assertEquals(Algorithms.calcExcelCharValues("JA"), 261);
+        assertEquals(Algorithms.calcExcelCharValues("ZZ"), 702);
+        assertEquals(Algorithms.calcExcelCharValues("AAA"), 703);
+        assertEquals(Algorithms.calcExcelCharValues("ABC"), 731);
+        assertEquals(Algorithms.calcExcelCharValues("ZTJ"), 18106);
+        assertEquals(Algorithms.calcExcelCharValues("BCDE"), 37289);
     }
 
+    @Test
+    public void searchJpg() {
+        System.out.println("Working directory: " + System.getProperty("user.dir"));
+        String workingDirectory = System.getProperty("user.dir");
 
+        System.out.println("Files: ");
+        Algorithms.searchFile(new File(workingDirectory), ".java");
+    }
 }

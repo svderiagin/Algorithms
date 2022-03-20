@@ -1,9 +1,6 @@
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Algorithms {
-
     public static boolean isPalindrome(String value) {
         boolean result = true;
         StringBuilder inputString = new StringBuilder(value);
@@ -23,19 +20,6 @@ public class Algorithms {
                 return value * calcFactorial(value - 1);
             }
         } else return 0;
-    }
-
-    public static void searchFile(File rootFile, String fileName) {
-        if (rootFile.isDirectory()) {
-            File[] files = rootFile.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    searchFile(file, fileName);
-                }
-            }
-        } else if (rootFile.getName().toLowerCase().endsWith(fileName)) {
-            System.out.println(rootFile.getName());
-        }
     }
 
     /**
@@ -62,7 +46,7 @@ public class Algorithms {
      *
      * @param value int
      */
-    public static int calcCharValues(String value) {
+    public static int calcExcelCharValues(String value) {
         int result = 0;
         int offset = 64;
         char[] valueArr = value.toUpperCase().toCharArray();
@@ -71,5 +55,18 @@ public class Algorithms {
             result += Math.pow(26, valueArr.length - i - 1) * index;
         }
         return result;
+    }
+
+    public static void searchFile(File rootFile, String fileName) {
+        if (rootFile.isDirectory()) {
+            File[] files = rootFile.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    searchFile(file, fileName);
+                }
+            }
+        } else if (rootFile.getName().toLowerCase().endsWith(fileName)) {
+            System.out.println(rootFile.getName());
+        }
     }
 }
